@@ -41,15 +41,17 @@ Read together they show range in the axis employers care about: *building for ge
 
 ### One-liner
 
-> A multi-game competitive rankings and tournament-operations platform — Glicko-2 skill ratings, live bracket running, and start.gg/Challonge imports — serving arbitrary games and communities in production.
+> A multi-game competitive rankings and tournament-operations platform — Glicko-2 skill ratings, live bracket running, and start.gg/Challonge imports — running in production across 3 games and 10 communities.
 
 **↯** The recon one-liner leads with the stack. For an employer skimming, leading with *what it does for whom* lands harder; the stack is one scroll below and doesn't need to fight for the first sentence. "Multi-game" is load-bearing and belongs in the first six words — it's the difference between a platform and a fan site.
+
+**↯** Put the concrete counts in the one-liner rather than saving them for the Proof block. "Serving arbitrary games and communities" is the kind of phrase a reader discounts on sight; "3 games and 10 communities" is checkable, and a checkable small number is more persuasive than an unfalsifiable large claim.
 
 ### The problem
 
 Competitive gaming communities track skill in spreadsheets and run brackets across three disconnected tools. Identity is the hard part: the same player appears under different tags on different platforms across years of events, so nobody can answer "who is actually the best right now?" Dizzy.gg makes players first-class entities with moderated identity claiming, computes a real rating from their full match history, and runs the tournaments that generate that history in the first place.
 
-And it does that for **any** game and any community. Games are database rows, not enum values; scenes are scopes with their own rating pools and their own moderators. Onboarding a new title is configuration, not a migration — a constraint held from the first schema onward, which is why it's still true at 63 models and 118 migrations.
+And it does that for **any** game and any community. Games are database rows, not enum values; scenes are scopes with their own rating pools and their own moderators. Onboarding a new title is configuration, not a migration — a constraint held from the first schema onward, which is why it's still true at 63 models and 118 migrations, and why three different games and ten communities now run on it.
 
 ### My role
 
@@ -83,8 +85,9 @@ TypeScript · Bun workspaces monorepo · Next.js 16.2 (App Router, RSC) · React
 - **5,590 players ranked · 796 tournaments · 30,028 sets recorded — in the first three months, built and operated by one person**
   - **↯ State the three-month window.** Without it these are good numbers; with it they're a traction story, and traction is what makes a reviewer read the rest of the page properly.
   - **↯ Verify the wording on "796 tournaments" before this ships.** The platform both *imports* historical brackets from start.gg/Challonge and *runs* tournaments live — and 796 in three months reads to me like it's mostly imported history. If so, "796 tournaments run" is a claim an interviewer will probe, and being caught loose on it costs more than the number gains. Split it: "796 tournaments indexed, N run live on the platform." The split is a *better* story anyway — importing 796 messy real-world brackets correctly is the harder engineering, and it's currently disguised as an operations stat. ⟨HARRY — what's the actual split?⟩
-- ⟨HARRY — still missing: **games supported** · **communities/scenes live**⟩
-  - **↯** These two remain the highest-value numbers on the page. An employer's instinctive read of "game-neutral architecture" is "built for one game, hedged with an abstraction" — and only a concrete count kills that read. If it's currently 2 games, say 2; a real small number beats an unfalsifiable claim of generality.
+- **3 games · ~10 communities live**
+  - **↯ State these plainly and early — do not apologise for their size.** An employer's instinctive read of "game-neutral architecture" is *"built for one game, hedged with an abstraction."* Three kills that read outright: an abstraction exercised across three titles has been tested, while one used by a single game is speculative. The community count does similar work for the per-scope rating pools — ten scenes means the scoping model has met real moderators with real disagreements, not just a schema diagram.
+  - **↯** Ten communities across three games is also the honest justification for the architectural effort. Without those numbers, "games are database rows, not enums" is a design preference; with them, it's a constraint that paid off.
 - 63 database models · 118 migrations · ~29 route pages
 - 89 architecture decision records
 - ~286K lines of source across 1,246 files; ~107K lines of tests across 400 test files
@@ -159,12 +162,11 @@ Both are legitimate things to be proud of; they're just not the same claim. If a
 - **Role** — solo on both. Dizzy.gg: concept, architecture, build, maintenance, product. Dojo: same, plus liaising with community experts for puzzle answers.
 - **Repos** — both private. Evidence comes from the live products, ADR excerpts, and screenshots instead.
 - **Time live** — both roughly three months.
-- **Dizzy.gg proof** — 5,590 players · 796 tournaments · 30,028 sets, in three months.
+- **Dizzy.gg proof** — 3 games · ~10 communities · 5,590 players · 796 tournaments · 30,028 sets, in three months.
 - **Dojo proof** — leads on craft and reliability, *not* audience size: ~90 consecutive days of automated puzzles; regulars solving 20–25 a month.
 
 ## Still open
 
-1. **Dizzy.gg: games supported and communities live** — the two numbers that prove multi-game is real.
-2. **Dizzy.gg: tournaments imported vs. run live** — needed before "796 tournaments" can be worded safely.
-3. **Launch months** — "running since ⟨month⟩ 2026" for each.
-4. **ADR excerpts** — whether to publish two or three verbatim as code-quality evidence, given both repos are private. Candidate for its own ticket.
+1. **Dizzy.gg: tournaments imported vs. run live** — needed before "796 tournaments" can be worded safely.
+2. **Launch months** — "running since ⟨month⟩ 2026" for each.
+3. **ADR excerpts** — whether to publish two or three verbatim as code-quality evidence, given both repos are private. Tracked as [#9](https://github.com/hyhydev/hyhygg/issues/9).
