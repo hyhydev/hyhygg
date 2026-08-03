@@ -7,6 +7,7 @@
 // focus. The screenshots are the only saturated pixels.
 
 import Image from "next/image";
+import BackToTop from "./BackToTop";
 import Reveal from "../Reveal";
 import SpotlightCard from "../bits/SpotlightCard";
 import CountUp from "../bits/CountUp";
@@ -113,7 +114,11 @@ export default function InstrumentPage() {
   const reduced = useReducedMotion();
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-sans text-neutral-100 antialiased selection:bg-[#34d399] selection:text-[#0a0a0a]">
+    <div
+      id="top"
+      className="min-h-screen bg-[#0a0a0a] font-sans text-neutral-100 antialiased selection:bg-[#34d399] selection:text-[#0a0a0a]"
+    >
+      <BackToTop />
       <div className="mx-auto max-w-[1120px] border-x border-[#1e1e1e]">
         {/* ── header ─────────────────────────────────────────────── */}
         <header className="flex items-center justify-between border-b border-[#1e1e1e] px-6 py-4 sm:px-10">
