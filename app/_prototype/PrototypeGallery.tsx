@@ -8,9 +8,11 @@
 import { useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import InstrumentPage from "./instrument/InstrumentPage";
+import EssayPage from "./essay/EssayPage";
 
 const VARIANTS = [
   { key: "instrument", label: "Instrument — dark, systematic", Component: InstrumentPage },
+  { key: "essay", label: "Essay — light, editorial", Component: EssayPage },
 ] as const;
 
 export default function PrototypeGallery() {
