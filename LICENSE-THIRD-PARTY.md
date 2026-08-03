@@ -3,7 +3,7 @@
 ## react-bits
 
 `app/_prototype/bits/FadeContent.tsx`, `app/_prototype/bits/SpotlightCard.tsx`,
-and `app/_prototype/bits/LogoLoop.tsx` are copied from
+`app/_prototype/bits/LogoLoop.tsx`, and `app/_prototype/bits/Waves.tsx` are copied from
 [react-bits](https://reactbits.dev) ([DavidHDev/react-bits](https://github.com/DavidHDev/react-bits))
 and modified locally — each file's header notes its changes.
 

@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 }
+
+/* PROTOTYPE — canvas fade-in for app/_prototype/field; delete with _prototype */
+@keyframes field-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

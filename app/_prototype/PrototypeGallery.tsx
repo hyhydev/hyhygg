@@ -9,10 +9,12 @@ import { useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import InstrumentPage from "./instrument/InstrumentPage";
 import EssayPage from "./essay/EssayPage";
+import FieldPage from "./field/FieldPage";
 
 const VARIANTS = [
   { key: "instrument", label: "Instrument — dark, systematic", Component: InstrumentPage },
   { key: "essay", label: "Essay — light, editorial", Component: EssayPage },
+  { key: "field", label: "Field — light, atmospheric", Component: FieldPage },
 ] as const;
 
 export default function PrototypeGallery() {
