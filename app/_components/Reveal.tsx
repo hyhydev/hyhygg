@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useReducedMotion } from "./useReducedMotion";
-import FadeContent from "./bits/FadeContent";
+import FadeContent from "./FadeContent";
 
 // The one motion wrapper (wayfinder #8): every scroll entrance goes through
 // here. Under prefers-reduced-motion the children render plainly — no fade,

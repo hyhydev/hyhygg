@@ -1,6 +1,7 @@
 "use client";
 
-// PROTOTYPE — the Field's drifting backdrop (wayfinder #12). Two layers:
+// The Field's drifting backdrop (wayfinder #12/#13) — the one ground shared
+// by every route (#17). Two layers:
 //
 // 1. A static CSS poster — vertical hairlines at the same gap as the canvas
 //    lines. This is what SSR emits (server reduced-motion snapshot is
@@ -17,9 +18,9 @@
 // exempt from the #8 contrast wall (the "Field drift" exemption).
 
 import dynamic from "next/dynamic";
-import { useReducedMotion } from "../useReducedMotion";
+import { useReducedMotion } from "./useReducedMotion";
 
-const FieldCanvas = dynamic(() => import("../bits/Waves"), { ssr: false });
+const FieldCanvas = dynamic(() => import("./Waves"), { ssr: false });
 
 export const LINE = "#e0e0e0";
 const X_GAP = 32;
